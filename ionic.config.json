@@ -1,0 +1,7 @@
+{
+  "name": "marinsat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
