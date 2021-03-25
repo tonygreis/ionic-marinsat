@@ -1,28 +1,68 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header class="ion-no-border primary">
       <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
+        <ion-title>Movies</ion-title>
+        <ion-buttons slot="start">
+          <ion-button>
+            <ion-icon :icon="menu"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon :icon="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
-      <ExploreContainer name="Tab 1 page" />
+      <div class="mt-2">
+        <Slides />
+      </div>
+      <div class="mt-2">
+        <Slides />
+      </div>
+      <div class="mt-2">
+        <Slides />
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButtons,
+  IonButton,
+  IonIcon,
+} from "@ionic/vue";
+import Slides from "@/components/Slides.vue";
+import { menu, search } from "ionicons/icons";
 
-export default  {
-  name: 'Tab1',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
-}
+export default {
+  name: "Tab1",
+  components: {
+    Slides,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonPage,
+    IonButtons,
+    IonButton,
+    IonIcon,
+  },
+  setup() {
+    return { menu, search };
+  },
+};
 </script>
+<style scoped>
+.mt-2 {
+  margin-top: 2rem;
+}
+</style>
