@@ -1,11 +1,18 @@
 <template>
-  <ion-slides class="slides" :options="slideOpts">
+  <ion-item lines="none">
+    My List
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon :icon="chevronForward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-slides class="listSlides" :options="slideOpts">
     <ion-slide>
       <div>
         <img
           src="https://www.themoviedb.org/t/p/w220_and_h330_face/zeD4PabP6099gpE0STWJrJrCBCs.jpg"
         />
-        <p class="title">This is the title of movie and can get better</p>
       </div>
     </ion-slide>
     <ion-slide>
@@ -13,7 +20,6 @@
         <img
           src="https://www.themoviedb.org/t/p/w220_and_h330_face/zeD4PabP6099gpE0STWJrJrCBCs.jpg"
         />
-        <p class="title">This is the title of movie</p>
       </div>
     </ion-slide>
     <ion-slide>
@@ -21,56 +27,37 @@
         <img
           src="https://www.themoviedb.org/t/p/w220_and_h330_face/zeD4PabP6099gpE0STWJrJrCBCs.jpg"
         />
-        <p class="title">This is the title of movie</p>
       </div>
     </ion-slide>
   </ion-slides>
 </template>
 
 <script>
-import { IonSlides, IonSlide } from "@ionic/vue";
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  components: { IonSlides, IonSlide },
+import { chevronForward } from "ionicons/icons";
+export default {
   setup() {
     // Optional parameters to pass to the swiper instance. See http://idangero.us/swiper/api/ for valid options.
     const slideOpts = {
       initialSlide: 0,
-      slidesPerView: 1.6,
-      spaceBetween: 10,
+      slidesPerView: 2.4,
+      spaceBetween: 20,
       centerredSlide: true,
-      speed: 400,
+      depth: 200,
+      modifier: 1,
     };
 
-    return { slideOpts };
+    return { slideOpts, chevronForward };
   },
-});
+};
 </script>
+
 <style scoped>
-ion-slide {
-  padding-bottom: 20px;
+.listSlides {
 }
-.slides {
-  margin-top: 10 px;
-}
-.slides img {
+.listSlides img {
   border-radius: 10px;
-  position: relative;
-}
-.slides img {
-  min-height: 150px;
-  max-height: 150px;
-  width: 100%;
-  object-fit: cover;
-}
-.slides .title {
-  position: absolute;
-  bottom: 0;
-  color: white;
-  text-align: left;
-  font-weight: bold;
-  padding: 10px;
-  text-shadow: 1px 1px 2px grey;
+  min-height: 200px;
+  max-height: 200px;
+  box-shadow: -1px 11px 13px -6px rgb(87, 86, 86);
 }
 </style>

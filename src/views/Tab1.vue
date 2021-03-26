@@ -19,12 +19,9 @@
       <div class="mt-2">
         <Slides />
       </div>
-      <div class="mt-2">
-        <Slides />
-      </div>
-      <div class="mt-2">
-        <Slides />
-      </div>
+      <category-slides></category-slides>
+      <main-slides></main-slides>
+      <main-slides></main-slides>
     </ion-content>
   </ion-page>
 </template>
@@ -42,6 +39,8 @@ import {
 } from "@ionic/vue";
 import Slides from "@/components/Slides.vue";
 import { menu, search } from "ionicons/icons";
+import CategorySlides from "@/components/CategorySlides.vue";
+import MainSlides from "@/components/MainSlides.vue";
 
 export default {
   name: "Tab1",
@@ -55,6 +54,8 @@ export default {
     IonButtons,
     IonButton,
     IonIcon,
+    CategorySlides,
+    MainSlides,
   },
   setup() {
     return { menu, search };
